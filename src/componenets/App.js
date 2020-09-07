@@ -10,10 +10,20 @@ class App extends Component {
   return (
     <div className="App">
       <h2>Hello</h2>
+      <div style={styles.listContainer}>
       {lists.map(list=><Trellolist title={list.title} cards={list.cards} />)}
+    </div>
     </div>
   );
 }
+}
+
+const styles ={
+  listContainer:{
+    display: 'flex',
+    flexDirection:'row'
+    
+  }
 }
 
 const mapStateToProps = state =>({
