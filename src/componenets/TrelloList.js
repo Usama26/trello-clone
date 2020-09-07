@@ -2,11 +2,11 @@ import React from 'react'
 import TrelloCard from './TrelloCard'
 
 
-const Trellolist =({title}) =>{
+const Trellolist =({title, cards}) =>{
     return(
         <div style={styles.container}>
         <h4>{title}</h4>
-        <TrelloCard/>
+        {cards.map(card=> <TrelloCard text={card.text}/>)}
         </div>
     )
 }
