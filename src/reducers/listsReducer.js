@@ -12,7 +12,7 @@ const initialState = [
     },
     {
         title:"New Episode",
-        id:0,
+        id:1,
         cards:[{
             id:0,
             text:"This is The First Card Of Second List"
