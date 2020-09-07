@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from '@material-ui/core/Icon';
 import Textarea from 'react-textarea-autosize';
 import Card from '@material-ui/core/Card';
+import { Button } from '@material-ui/core';
 
 class TrelloActionBution extends React.Component {
 
@@ -18,7 +19,7 @@ class TrelloActionBution extends React.Component {
         this.setState({ formOpen: false })
     }
 
-    handleInputChange = (e) =>{
+    handleInputChange = (e) => {
         this.setState({ text: e.target.value })
     }
 
@@ -28,7 +29,7 @@ class TrelloActionBution extends React.Component {
         const buttonText = list ? "Add Another List" : "Add Another Card"
         const buttonTextOpacity = list ? 1 : 0.5
         const buttonTextColor = list ? "white" : "inherit"
-        const buttonTextBackground = list ? "rgb(0,0,0,15)" : "inherit"
+        const buttonTextBackground = list ? "rgb(0,0,0,.15)" : "inherit"
         return (
             <div
                 onClick={this.openForm}
@@ -53,7 +54,12 @@ class TrelloActionBution extends React.Component {
 
 
         return (<div>
-            <Card>
+            <Card style={{
+                overflow: "visible",
+                minHeight: 80,
+                minWidth: 272,
+                padding: "6px 8px 2px"
+            }}>
                 <Textarea
                     placeholder={placeholder}
                     autoFocus
@@ -61,13 +67,20 @@ class TrelloActionBution extends React.Component {
                     value={this.state.text}
                     onChange={this.handleInputChange}
                     style={{
-                        resize:"none",
-                            width:"100%",
-                            outline:"none",
-                            border:"none"
+                        resize: "none",
+                        width: "100%",
+                        outline: "none",
+                        border: "none",
+                        overflow: "hidden"
                     }}
                 />
             </Card>
+            <div style={styles.formButtonGroup}>
+                <Button varient="contained" style={{color:"white",backgroundColor:"#5aac44"}} >
+                    {buttonTitle}{" "}
+                </Button>
+                <Icon style={{marginLeft:8,cursor:"pointer"}}>close</Icon>
+            </div>
         </div>)
     }
     render() {
@@ -80,9 +93,15 @@ const styles = {
         display: "flex",
         alignItems: "center",
         cursor: "pointer",
-        borderRadius: 36,
+        borderRadius: 3,
+        height:36,
         width: 272,
         paddingLeft: 10
+    },
+    formButtonGroup:{
+        marginTop:8,
+        display:"flex",
+        alignItems: "center"
     }
 }
 
