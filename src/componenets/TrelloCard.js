@@ -35,10 +35,10 @@ const TrelloCard = ({ text, id, index }) => {
     )
 }
 
-const styles = {
-    cardContainer: {
-        marginBottom: 8
-    }
-}
+// const styles = {
+//     cardContainer: {
+//         marginBottom: 8
+//     }
+// }
 
 export default TrelloCard;

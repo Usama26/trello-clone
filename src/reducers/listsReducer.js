@@ -68,29 +68,37 @@ const listReducer = (state = initialState, action) => {
                 droppableIdEnd,
                 droppableIdIndexStart,
                 droppableIdIndexEnd,
-                draggableId } = action.payload;
-
+                draggableId, 
+                type
+            } = action.payload;
 
             const newState = [...state];
-            // IN THE SAME LIST
-            if (droppableIdStart === droppableIdEnd) {
-                const list = state.find(list => droppableIdStart === list.id)
-                const card = list.cards.splice(droppableIdIndexStart, 1)
-                list.cards.splice(droppableIdIndexEnd, 0, ...card)
+
+            // dragging lists around
+            if (type === "list"){
+                const list = newState.splice(droppableIdIndexStart,1);
+                newState.splice(droppableIdIndexEnd,0,...list);
+                return newState
             }
+                // IN THE SAME LIST
+                if (droppableIdStart === droppableIdEnd) {
+                    const list = state.find(list => droppableIdStart === list.id);
+                    const card = list.cards.splice(droppableIdIndexStart, 1);
+                    list.cards.splice(droppableIdIndexEnd, 0, ...card);
+                }
             // Other List
-            if(droppableIdStart !== droppableIdEnd){
+            if (droppableIdStart !== droppableIdEnd) {
                 // find the list where drag happened
                 const listStart = state.find(list => droppableIdStart === list.id);
 
                 // pull out the card from that list
-                const card = listStart.cards.splice(droppableIdIndexStart,1);
+                const card = listStart.cards.splice(droppableIdIndexStart, 1);
 
                 // find the list where drag ended
                 const listEnd = state.find(list => droppableIdEnd === list.id);
 
                 // put the card in the new list
-                listEnd.cards.splice(droppableIdIndexEnd,0,...card);
+                listEnd.cards.splice(droppableIdIndexEnd, 0, ...card);
             }
             return newState;
 
