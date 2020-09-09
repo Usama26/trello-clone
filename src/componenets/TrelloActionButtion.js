@@ -108,7 +108,7 @@ class TrelloActionBution extends React.Component {
                     {buttonTitle}{" "}
                 </Button>
                 <Icon
-               
+                onClick={this.closeForm}
                  style={{ marginLeft: 8, cursor: "pointer"}}>close</Icon>
             </div>
         </div>)
