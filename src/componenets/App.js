@@ -22,7 +22,7 @@ class App extends Component {
     this.props.dispatch(sort(
       source.droppableId,
       destination.droppableId,
-      source.indexm,
+      source.index,
       destination.index,
       draggableId,
       type
@@ -40,6 +40,7 @@ class App extends Component {
           <Droppable droppableId="all-lists" direction="horizontal" type="list">
             {provided => (
               <ListContainer {...provided.droppableProps} ref={provided.innerRef} >
+                {/* {console.log("YYY",provided.droppableProps)} */}
                 {lists.map((list, index) =>
                   (
                     <Trellolist

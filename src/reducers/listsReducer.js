@@ -48,7 +48,7 @@ const listReducer = (state = initialState, action) => {
             }
             cardID += 1;
 
-            const newState = state.map((list) => {
+            var newState = state.map((list) => {
                 if (list.id === action.payload.listID) {
                     return {
                         ...list,
@@ -72,19 +72,22 @@ const listReducer = (state = initialState, action) => {
                 type
             } = action.payload;
 
-            const newState = [...state];
+            var newState = [...state];
 
             // dragging lists around
             if (type === "list"){
+               
                 const list = newState.splice(droppableIdIndexStart,1);
                 newState.splice(droppableIdIndexEnd,0,...list);
                 return newState
             }
                 // IN THE SAME LIST
                 if (droppableIdStart === droppableIdEnd) {
+                    console.log("XXX",action.payload);
                     const list = state.find(list => droppableIdStart === list.id);
                     const card = list.cards.splice(droppableIdIndexStart, 1);
                     list.cards.splice(droppableIdIndexEnd, 0, ...card);
+                    
                 }
             // Other List
             if (droppableIdStart !== droppableIdEnd) {

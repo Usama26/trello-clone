@@ -8,7 +8,8 @@ export const addList = (title) => {
     }
 }
 
-export const sort = (droppableIdStart,
+export const sort = (
+    droppableIdStart,
     droppableIdEnd,
     droppableIdIndexStart,
     droppableIdIndexEnd,
