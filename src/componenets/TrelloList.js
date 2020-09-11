@@ -1,5 +1,6 @@
 import React from 'react'
 import TrelloCard from './TrelloCard'
+import Typography from '@material-ui/core/Typography';
 import TrelloActionButton from './TrelloActionButtion'
 import { Droppable, Draggable } from "react-beautiful-dnd";
 
@@ -26,7 +27,9 @@ const Trellolist = ({ title, cards, listID, index }) => {
                     <Droppable droppableId={String(listID)} >
                         {(provided) => (
                             <div {...provided.droppableProps}  ref={provided.innerRef}>
-                            <h4>{title}</h4>
+                                   <Typography variant="subtitle2" gutterBottom>
+                                {title}
+                            </Typography>
                             {cards.map((card, index) => <TrelloCard key={card.id} index={index}
                                 text={card.text} id={card.id} />)}
 {provided.placeholder}
