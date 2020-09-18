@@ -1,7 +1,7 @@
 import React from 'react'
 import TrelloCard from './TrelloCard'
 import Typography from '@material-ui/core/Typography';
-import TrelloActionButton from './TrelloActionButtion'
+import TrelloActionButton from './TrelloActionButton'
 import { Droppable, Draggable } from "react-beautiful-dnd";
 
 import styled from "styled-components"

@@ -83,7 +83,7 @@ const listReducer = (state = initialState, action) => {
             }
                 // IN THE SAME LIST
                 if (droppableIdStart === droppableIdEnd) {
-                    console.log("XXX",action.payload);
+                   
                     const list = state.find(list => droppableIdStart === list.id);
                     const card = list.cards.splice(droppableIdIndexStart, 1);
                     list.cards.splice(droppableIdIndexEnd, 0, ...card);
