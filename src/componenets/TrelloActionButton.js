@@ -2,10 +2,7 @@ import React from 'react';
 import Icon from '@material-ui/core/Icon';
 import Textarea from 'react-textarea-autosize';
 import Card from '@material-ui/core/Card';
-import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Chip from '@material-ui/core/Chip';
+
 import { Button } from '@material-ui/core';
 import { connect } from "react-redux";
 import { addList, addCard , addLabel} from "../actions";
