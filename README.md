@@ -1,3 +1,8 @@
+## Trello Clone
+
+### `Description`
+Clone of a project management tool Trello, has the functionality of drag and drop along with other trello features. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
