@@ -32,7 +32,7 @@ const Trellolist = ({ title, cards, listID, index }) => {
                             </Typography>
                             {cards.map((card, index) => <TrelloCard key={card.id} index={index}
                                 text={card.text} id={card.id} />)}
-{provided.placeholder}
+                                    {provided.placeholder}
                         <TrelloActionButton listID={listID} />
                         
                         </div>
